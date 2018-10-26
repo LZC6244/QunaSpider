@@ -5,16 +5,16 @@
 - 代码解析：
     - 设置PhantomJs请求头User-Agent，防止针对PhantomJs的反爬虫
     ```
-        dcap = dict(DesiredCapabilities.PHANTOMJS)
-        dcap['phantomjs.page.settings.userAgent'] = (
-            'Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0')
+    dcap = dict(DesiredCapabilities.PHANTOMJS)
+    dcap['phantomjs.page.settings.userAgent'] = (
+        'Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0')
     ```
     - 设置入住时间和离店时间
     ```
-        # 入住时间设置为当前日期加5天
-        self.goday = datetime.date.today() + datetime.timedelta(days=5)
-        # 离店时间设置为当前日期加10天
-        self.leaveday = datetime.date.today() + datetime.timedelta(days=5 + 5)
+    # 入住时间设置为当前日期加5天
+    self.goday = datetime.date.today() + datetime.timedelta(days=5)
+    # 离店时间设置为当前日期加10天
+    self.leaveday = datetime.date.today() + datetime.timedelta(days=5 + 5)
     ```
     - 网站使用Ajax技术，不能确定网页元素什么时候被完全加载。执行js脚本，把网页拉到底部加载全部网页元素。等待网页元素加载有显式等待和隐式等待。
     ```
